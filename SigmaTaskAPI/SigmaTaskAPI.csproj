@@ -14,4 +14,8 @@
     <ProjectReference Include="..\BusinessLogic.Layer\BusinessLogic.Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
