@@ -30,8 +30,6 @@ namespace DataAccess.Layer.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [RegularExpression("^\\d{2}:\\d{2}:\\d{2}$",
-            ErrorMessage = "Invalid time format. Please enter a valid time in the format 'hh:mm:ss' with 2 digits for each component.")]
         public string? BestCallTime { get; set; }
 
         [MaxLength(200)]
