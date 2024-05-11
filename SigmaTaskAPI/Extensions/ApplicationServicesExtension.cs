@@ -11,6 +11,7 @@ namespace SigmaTaskAPI.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfiles));
+            services.AddMemoryCache();
             services.AddScoped(typeof(ICandidateRepository), typeof(CandidateRepository));
             services.Configure<ApiBehaviorOptions>(options =>
             {
