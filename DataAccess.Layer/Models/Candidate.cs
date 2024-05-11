@@ -43,5 +43,18 @@ namespace DataAccess.Layer.Models
         [MaxLength(500)]
         [Required]
         public string Comment { get; set; }
+
+        public void Update(string FirstName,string LastName,string PhoneNumber,string Email
+            ,string BestCallTime,string LinkedInProfileUrl,string GitHubProfileUrl,string Comment)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
+            this.BestCallTime = BestCallTime;
+            this.LinkedInProfileUrl = LinkedInProfileUrl;
+            this.GitHubProfileUrl = GitHubProfileUrl;
+            this.Comment = Comment;
+        }
     }
 }

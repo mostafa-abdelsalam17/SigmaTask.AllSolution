@@ -27,18 +27,16 @@ namespace SigmaTaskAPI.MiddleWares
             {
                 //1.log Exception in console App
                 logger.LogError(ex, ex.Message);
-                //2.log Exception in Data Base [Producton] only
-                //3.select some feature for response[Content Type, status Code, Body]
+                //2.select some feature for response[Content Type, status Code, Body]
                 context.Response.ContentType = "application/json";
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 var responseObject = (env.IsDevelopment()) ?
                     new ApiExceptionResponse((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace.ToString())
                     : new ApiExceptionResponse((int)HttpStatusCode.InternalServerError);
-                //4.convert object to json
+                //3.convert object to json
                 var options = new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
                 var json = JsonSerializer.Serialize(responseObject, options);
-
-                //5.return body with json
+                //4.return body with json
                 await context.Response.WriteAsync(json);
             }
         }
