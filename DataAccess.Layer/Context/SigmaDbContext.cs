@@ -18,12 +18,8 @@ namespace DataAccess.Layer.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Candidate>()
-                .HasIndex(c => c.FirstName)
-                .IsUnique(false);
-
-            modelBuilder.Entity<Candidate>()
-                .HasIndex(c => c.LastName)
-                .IsUnique(false);
+                .HasIndex(c => c.Email)
+                .IsUnique(true);
         }
     }
 }

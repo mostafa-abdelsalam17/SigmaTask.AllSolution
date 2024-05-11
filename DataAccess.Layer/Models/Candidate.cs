@@ -10,6 +10,7 @@ namespace DataAccess.Layer.Models
 {
     public class Candidate
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
@@ -24,7 +25,6 @@ namespace DataAccess.Layer.Models
         [MaxLength(20)]
         public string? PhoneNumber { get; set; }
 
-        [Key]
         [Required]
         [MaxLength(100)]
         [EmailAddress]

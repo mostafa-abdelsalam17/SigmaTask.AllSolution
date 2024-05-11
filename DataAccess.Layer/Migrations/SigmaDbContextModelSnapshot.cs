@@ -24,9 +24,9 @@ namespace DataAccess.Layer.Migrations
 
             modelBuilder.Entity("DataAccess.Layer.Models.Candidate", b =>
                 {
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BestCallTime")
                         .HasColumnType("nvarchar(max)");
@@ -36,6 +36,11 @@ namespace DataAccess.Layer.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -44,10 +49,6 @@ namespace DataAccess.Layer.Migrations
                     b.Property<string>("GitHubProfileUrl")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -62,11 +63,10 @@ namespace DataAccess.Layer.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Email");
+                    b.HasKey("Id");
 
-                    b.HasIndex("FirstName");
-
-                    b.HasIndex("LastName");
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Candidates");
                 });
