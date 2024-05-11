@@ -1,0 +1,1 @@
+# SigmaTask.AllSolution
